@@ -4,9 +4,9 @@
 }
 
 .contact-card {
-  max-width: 1200px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 56px clamp(32px, 6vw, 120px);
+  padding: 56px clamp(24px, 6vw, 180px);
   border-radius: 28px;
   text-align: center;
   position: relative;
@@ -17,8 +17,8 @@
 
 /* contenedor con padding lateral para móviles */
 .contact-section {
-  padding-left: clamp(32px, 6vw, 120px);
-  padding-right: clamp(32px, 6vw, 120px);
+  padding-left: clamp(24px, 6vw, 180px);
+  padding-right: clamp(24px, 6vw, 180px);
   box-sizing: border-box;
 }
 
@@ -135,6 +135,9 @@
   .contact-card { padding: 44px 26px; }
   .contact-title { font-size: 1.8rem; }
 }
+
+
+
 
 
 

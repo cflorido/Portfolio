@@ -4,9 +4,9 @@
 }
 
 .highlights-inner {
-  max-width: 1400px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 clamp(32px, 6vw, 120px);
+  padding: 0 clamp(24px, 6vw, 180px);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 22px;
@@ -109,5 +109,7 @@
     grid-template-columns: 1fr;
   }
 }
+
+
 
 

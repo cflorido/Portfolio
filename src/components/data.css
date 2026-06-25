@@ -5,9 +5,9 @@
   gap: 20px;
 
   width: 100%;
-  max-width: 1400px;
+  max-width: 1120px;
   margin: 0 auto;    /* centrado, consistente con las demás secciones */
-  padding: 0 clamp(32px, 6vw, 120px);
+  padding: 0 clamp(24px, 6vw, 180px);
   box-sizing: border-box;
 }
 
@@ -266,6 +266,8 @@
     min-height: 55px;
   }
 }
+
+
 
 
 

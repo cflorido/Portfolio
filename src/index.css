@@ -1,3 +1,7 @@
+html {
+  font-size: 15px;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -6,4 +10,66 @@ html, body {
 }
 * {
   box-sizing: border-box;
+}
+
+@media (min-width: 1400px) {
+  .hero,
+  .background-inner,
+  .career-history,
+  .codelab-inner,
+  .contact-card,
+  .expertise-inner,
+  .footer-content,
+  .highlights-inner,
+  .hobbies-inner,
+  .about-inner,
+  .skills-wrap,
+  .navbar-container,
+  .story-inner,
+  .data-container,
+  .projects-heading,
+  .projects-swiper {
+    max-width: 1280px !important;
+    padding-left: 40px !important;
+    padding-right: 40px !important;
+  }
+
+  .hero {
+    max-width: 1240px !important;
+  }
+
+  .hero-right {
+    max-width: 460px !important;
+  }
+}
+
+@media (min-width: 1700px) {
+  .hero,
+  .background-inner,
+  .career-history,
+  .codelab-inner,
+  .contact-card,
+  .expertise-inner,
+  .footer-content,
+  .highlights-inner,
+  .hobbies-inner,
+  .about-inner,
+  .skills-wrap,
+  .navbar-container,
+  .story-inner,
+  .data-container,
+  .projects-heading,
+  .projects-swiper {
+    max-width: 1400px !important;
+    padding-left: 36px !important;
+    padding-right: 36px !important;
+  }
+
+  .hero {
+    max-width: 1320px !important;
+  }
+
+  .hero-right {
+    max-width: 500px !important;
+  }
 }
