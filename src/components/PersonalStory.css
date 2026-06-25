@@ -2,19 +2,19 @@
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 90px 24px;
+  padding: 90px clamp(32px, 6vw, 120px);
 }
 
 .story-inner {
   position: relative;
   overflow: hidden;
-  max-width: 1080px;
+  max-width: 1400px;
   width: 100%;
   text-align: center;
   background: #fffdf7;
   border: 2px dashed rgba(117, 145, 190, 0.4);
   border-radius: 44px;
-  padding: 56px 80px 110px;
+  padding: 56px clamp(32px, 5vw, 96px) 110px;
 }
 
 .story-eyebrow {
@@ -170,3 +170,6 @@
   .story-heading { font-size: 2rem; }
   .story-text { font-size: 0.98rem; }
 }
+
+
+

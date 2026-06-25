@@ -5,9 +5,9 @@
   gap: 20px;
 
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;    /* centrado, consistente con las demás secciones */
-  padding: 0 24px;
+  padding: 0 clamp(32px, 6vw, 120px);
   box-sizing: border-box;
 }
 
@@ -148,7 +148,7 @@
 /* 📱 Responsive Design */
 @media (max-width: 1200px) {
   .data-container {
-    max-width: 90%;
+    max-width: 100%;
     gap: 15px;
   }
   
@@ -168,7 +168,7 @@
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 840px) {
   .Maindata-container {
     height: 350px;
   }
@@ -266,5 +266,7 @@
     min-height: 55px;
   }
 }
+
+
 
 
