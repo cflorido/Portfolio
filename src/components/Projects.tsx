@@ -1,433 +1,421 @@
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useLang } from "../i18n/LanguageContext";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Navigation, Pagination, Keyboard } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
+type Proyecto = {
+  id: number;
+  nombre: string;
+  descripcion: string;
+  tecnologias: string;
+  imagen: string;
+  github?: string;
+  web?: string;
+  destacado?: string; // métrica/dato clave que se resalta
+};
 
 const Projects = ({ id }: { id?: string }) => {
-  const proyectos = [
+  const { t, dir } = useLang();
+  const proyectos: Proyecto[] = [
+    {
+      "id": 7,
+      "nombre": "Campus Activity Discovery App (iOS)",
+      "descripcion": "A native iOS app that helps university students make the most of their free periods by discovering activities, events and places on campus. I built the Swift/iOS app with SwiftUI and an MVVM architecture, integrating Firebase (Auth, Firestore, Storage) and a FastAPI microservice for ML-powered recommendations.",
+      "tecnologias": "Swift, SwiftUI, MVVM, Firebase, FastAPI, REST",
+      "github": "https://github.com/Moviles-2025-20/Wiki",
+      "imagen": "/Portfolio/CampusApp.png",
+      "destacado": "Native iOS · ML recommendations"
+    },
+    {
+      "id": 8,
+      "nombre": "Piping & Welding – Corporate Website",
+      "descripcion": "A corporate website I designed and fully implemented for an Australian welding company specialising in piping, steel and metal structures. End-to-end ownership of the visual design, UX and front-end implementation: clean, modern and fully responsive.",
+      "tecnologias": "Vite, React, TypeScript, CSS, Responsive Design",
+      "web": "https://pipingwelding.com/",
+      "imagen": "/Portfolio/PipingWelding.png",
+      "destacado": "Live · End-to-end design & build"
+    },
     {
       "id": 1,
       "nombre": "Personal Portfolio",
-      "descripcion": "This portfolio you're viewing right now is a fully responsive and modern website designed to adapt seamlessly to any device. Beyond serving as a showcase of my professional experience and projects, it also reflects my personal style and passion for design. My goal was to create a clean, engaging, and user-friendly space where both my work and personality come through.",
+      "descripcion": "This very portfolio you're viewing right now: a fully responsive, modern website designed to adapt seamlessly to any device. A showcase of my work that also reflects my personal style and passion for clean, user-friendly design.",
       "tecnologias": "Vite, React, TypeScript, CSS",
       "github": "https://github.com/cflorido/Portafolio",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/Portafolio.png"
-    },
-    {
-      "id": 5,
-      "nombre": "Climate Derivatives Pricing",
-      "descripcion": "A research project focused on valuing temperature-based climate derivatives, specifically Heating Degree Days (HDD) and Cooling Degree Days (CDD), to mitigate climate risk in Colombian coffee-growing regions. The work combines deterministic models (Fourier series with third-degree harmonics) and stochastic models (mean reversion) to project temperature data and price temperature options. An interactive tool was also developed to explore pricing dynamics under different climate scenarios, offering risk management strategies for coffee producers against extreme temperature variations.",
-      "tecnologias": "Python, NumPy, Pandas, Statsmodels, Matplotlib",
-      "github": "https://github.com/cflorido/AppPricing.git",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/ClimatePricing.png"
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/Portafolio.png",
+      "destacado": "Responsive · Custom UI"
     },
     {
       "id": 2,
       "nombre": "Differential Privacy for Trajectories",
-      "descripcion": "This thesis project explores the application of differential privacy to human mobility trajectories, with a focus on protecting sensitive location data while preserving analytical value. The work compares different differential privacy mechanisms by varying key metrics and evaluating their impact on data utility. It produces relevant visualizations such as flow maps of trajectories, heatmaps, and origin-destination matrices, providing insight into how privacy-preserving techniques affect mobility analysis outcomes. The project balances theoretical rigor with practical experimentation using real-world datasets from Beijing.",
-      "tecnologias": "Python, Jupyter Notebook, NumPy, Matplotlib, Folium",
+      "descripcion": "Undergraduate thesis applying differential privacy to human mobility trajectories, protecting sensitive location data while preserving analytical value. Compares privacy mechanisms and produces flow maps, heatmaps and origin-destination matrices on real-world datasets.",
+      "tecnologias": "Python, Jupyter, NumPy, Matplotlib, Folium",
       "github": "https://github.com/cflorido/Differential-Privacy-Mechanisms-for-Trajectories.git",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/Privacidad.png"
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/Privacidad.png",
+      "destacado": "Thesis · 17,000+ trajectories"
+    },
+    {
+      "id": 5,
+      "nombre": "Climate Derivatives Pricing",
+      "descripcion": "Research project valuing temperature-based climate derivatives (HDD/CDD) to mitigate climate risk in Colombian coffee regions. Combines deterministic (Fourier) and stochastic (mean-reversion) models, plus an interactive tool to explore pricing under different climate scenarios.",
+      "tecnologias": "Python, NumPy, Pandas, Statsmodels, Matplotlib",
+      "github": "https://github.com/cflorido/AppPricing.git",
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/ClimatePricing.png",
+      "destacado": "Quant · Risk modelling"
     },
     {
       "id": 3,
-      "nombre": "Text Analytics for Political Fake News Detection",
-      "descripcion": "A collaborative project focused on detecting political fake news using text analytics and multiple machine learning models, including Naive Bayes, Random Forest, KNN, and Gradient Boosting. The system analyzes textual patterns to identify misinformation, optimizing detection with metrics like F1-score and ROC AUC.",
+      "nombre": "Text Analytics for Fake News Detection",
+      "descripcion": "Detecting political fake news using text analytics and multiple ML models (Naive Bayes, Random Forest, KNN, Gradient Boosting). Analyses textual patterns to identify misinformation, optimised with F1-score and ROC AUC.",
       "tecnologias": "Python, Scikit-learn, Pandas, NumPy, TF-IDF, SMOTE",
       "github": "https://github.com/cflorido/Proyecto1_B1",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/text_analytics.png"
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/text_analytics.png",
+      "destacado": "ML · NLP"
     },
     {
       "id": 4,
-      "nombre": "Banking subscription Prediction",
-      "descripcion": "A comprehensive project analyzing customer behavior and predicting subscription to term deposits (CDTs) using data cleaning, exploratory analysis, and machine learning models. The project includes visualization dashboards, predictive modeling with neural networks and Random Forest, threshold optimization to maximize expected bank revenue, and deployment on AWS.",
-      "tecnologias": "Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, SMOTEENN, Dash, AWS",
+      "nombre": "Banking Subscription Prediction",
+      "descripcion": "End-to-end project predicting term-deposit subscriptions: data cleaning, EDA, neural networks and Random Forest, threshold optimisation to maximise expected revenue, and deployment on AWS with interactive dashboards.",
+      "tecnologias": "Python, Scikit-learn, TensorFlow, Dash, AWS",
       "github": "https://github.com/cflorido/Proyecto_2_Analitica",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/BankingProducts.png"
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/BankingProducts.png",
+      "destacado": "ML · AWS deployment"
     },
     {
       "id": 6,
-      "nombre": "Yellow Fever Vaccination Analysis – ETL & Power BI",
-      "descripcion": "A Business Intelligence project analyzing Yellow Fever vaccination coverage in Colombia (2016–2019). The work involved building an AWS-based ETL pipeline (S3, Glue, Redshift) to process national vaccination and mortality data, structured into a star schema for analytical queries. Interactive dashboards were developed in Power BI to visualize trends by year, department, and region, providing insights for public health decision-making and strategies to reduce vaccination gaps.",
-      "tecnologias": "Python, Pandas, NumPy, Matplotlib, Seaborn, AWS S3, AWS Glue, AWS Redshift, SQL, Power BI",
+      "nombre": "Yellow Fever Vaccination – ETL & Power BI",
+      "descripcion": "Business Intelligence project analysing Yellow Fever vaccination coverage in Colombia (2016–2019). Built an AWS ETL pipeline (S3, Glue, Redshift) into a star schema, with interactive Power BI dashboards to inform public-health decisions.",
+      "tecnologias": "Python, AWS S3, Glue, Redshift, SQL, Power BI",
       "github": "https://github.com/cflorido/yellow-fever-vaccine-coverage-analysis-final",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/yellow_fever.png"
+      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/yellow_fever.png",
+      "destacado": "Data Engineering · BI"
     }
   ];
 
-  const [seleccionado, setSeleccionado] = useState(proyectos[0]);
+  const [activo, setActivo] = useState(0);
 
   return (
-    <>
+    <section id={id} className="projects-section">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap');
 
-        .projects-container-projects {
-          display: flex;
-          max-width: 100%;
-          margin: 0;
-          gap: 70px;
-          font-family: 'Montserrat', sans-serif;
-          color: #4e3b61;
-          margin-bottom: 5%;
-          margin-top: 5%;
-          padding: 0 20px;
-          box-sizing: border-box;
-          width: 100%;
-          align-items: stretch;
-        }
-
-        .projects-inner-container {
-          margin-left: 9%;
-          margin-right: 13%;
-        }
-
-        .projects-title-projects {
-          font-family: 'Outfit', sans-serif;
-          font-weight: 600;
-          font-size: 2.9rem;
-          color: #7591be;
-          margin-top: 5%;
-          margin-bottom: 40px;
-          text-align: center;
-          letter-spacing: 4px;
-          max-width: 100%;
-          padding: 0 20px;
-          box-sizing: border-box;
-        }
-
-        .projects-menu-projects {
-          flex: 0 0 40%;
-          max-width: 40%;
-          display: flex;
-          flex-direction: column;
-          height: 650px;
-          justify-content: space-between;
-        }
-
-        .menu-item-projects {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 15px;
-          padding: 15px 20px;
-          border-radius: 12px;
-          background: #ffffff;
-          box-shadow: 0px 5px 20px rgba(146, 92, 147, 0.2);
-          cursor: pointer;
-          font-weight: 500;
-          color: #555;
-          transition: all 0.3s ease;
-          position: relative;
-          border: 2px solid transparent;
-          background-clip: padding-box;
-          text-align: center;
-          font-size: 0.95rem;
-        }
-
-        .menu-item-projects:last-child {
-          margin-bottom: 0;
-        }
-
-        .menu-item-projects:hover {
-          transform: translateX(5px);
-        }
-
-        .menu-item-projects.activo-projects {
-          background: #ffffff;
-          color: #7591be;
-          font-weight: 600;
-          box-shadow: 0px 5px 20px rgba(146, 92, 147, 0.3);
-          transform: translateX(5px);
-        }
-
-        .project-detail-wrapper-projects {
-          flex: 0 0 60%;
-          max-width: 60%;
-        }
-
-        .project-detail-projects {
-          width: 100%;
-          height: 650px;
-          background: #ffffff;
-          border-radius: 16px;
-          padding: 40px;
-          box-shadow: 0px 5px 20px rgba(146, 92, 147, 0.2);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .projects-section {
+          padding: 70px 0 90px;
           position: relative;
           overflow: hidden;
+        }
+
+        .projects-heading {
+          text-align: center;
+          max-width: 1200px;
+          margin: 0 auto 10px;
+          padding: 0 24px;
+        }
+
+        .projects-eyebrow {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.85rem;
+          font-weight: 600;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: #db88a4;
+          margin: 0 0 8px;
+        }
+
+        .projects-title-new {
+          font-family: 'Outfit', sans-serif;
+          font-weight: 700;
+          font-size: 2.9rem;
+          color: #7591be;
+          letter-spacing: 3px;
+          margin: 0;
+        }
+
+        .projects-subtitle {
+          font-family: 'Montserrat', sans-serif;
+          color: #6b5b7e;
+          font-size: 1.02rem;
+          max-width: 620px;
+          margin: 14px auto 40px;
+          line-height: 1.6;
+        }
+
+        .projects-swiper {
+          padding: 50px 10px 80px !important;
+          max-width: 1200px;
+        }
+
+        .project-slide {
+          width: 460px;
+          max-width: 88vw;
+        }
+
+        .project-card-new {
+          background: #ffffff;
+          border-radius: 22px;
+          overflow: hidden;
+          box-shadow: 0px 14px 36px rgba(146, 92, 147, 0.16);
+          border: 1px solid rgba(117, 145, 190, 0.12);
           display: flex;
           flex-direction: column;
-          box-sizing: border-box;
+          height: 540px;
+          /* Por defecto ocultas (solo se muestran la activa y sus vecinas) */
+          transform: scale(0.78);
+          opacity: 0;
+          transition: transform 0.45s ease, box-shadow 0.45s ease, opacity 0.45s ease;
         }
 
-        .project-detail-projects::before {
+        /* Vecinas: visibles pero más pequeñas y atenuadas */
+        .projects-swiper .swiper-slide-prev .project-card-new,
+        .projects-swiper .swiper-slide-next .project-card-new {
+          transform: scale(0.82);
+          opacity: 0.5;
+        }
+
+        /* La tarjeta del centro: más grande y nítida */
+        .projects-swiper .swiper-slide-active .project-card-new {
+          transform: scale(1.05);
+          opacity: 1;
+          box-shadow: 0px 30px 66px rgba(146, 92, 147, 0.34);
+        }
+
+        .project-image-wrap {
+          position: relative;
+          height: 200px;
+          flex-shrink: 0;
+          overflow: hidden;
+        }
+
+        .project-image-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s ease;
+        }
+
+        .swiper-slide-active .project-image-wrap img {
+          transform: scale(1.05);
+        }
+
+        .project-image-wrap::after {
           content: '';
           position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 20%, #eec6c7 60%, #db88a4 80%, #cc8eb1 100%);
-          border-radius: 16px 16px 0 0;
+          inset: 0;
+          background: linear-gradient(180deg, rgba(115,143,189,0) 40%, rgba(76,59,97,0.55) 100%);
         }
 
-        .project-detail-projects:hover {
-          transform: scale(1.02);
-          box-shadow: 0px 8px 30px rgba(146, 92, 147, 0.3);
-        }
-
-        .project-detail-projects img {
-          width: 100%;
-          height: 200px;
-          object-fit: cover;
-          border-radius: 14px;
-          margin-bottom: 20px;
-          flex-shrink: 0;
-        }
-
-        .project-content-projects {
-          flex: 1;
-          overflow-y: auto;
-          padding-right: 10px;
-        }
-
-        .project-content-projects::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        .project-content-projects::-webkit-scrollbar-track {
-          background: #f1f1f1;
-          border-radius: 3px;
-        }
-
-        .project-content-projects::-webkit-scrollbar-thumb {
-          background: linear-gradient(135deg, #7591be, #a8c3d4);
-          border-radius: 3px;
-        }
-
-        .project-text-projects {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 1rem;
-          margin: 10px 0;
-          line-height: 1.6;
-          color: #555;
-          font-weight: 300;
-          letter-spacing: 0.3px;
-        }
-
-        .technologies-label-projects {
+        .project-badge {
+          position: absolute;
+          bottom: 12px;
+          left: 12px;
+          z-index: 2;
+          background: rgba(255,255,255,0.92);
+          backdrop-filter: blur(4px);
           color: #7591be;
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.72rem;
           font-weight: 600;
+          letter-spacing: 0.4px;
+          padding: 6px 12px;
+          border-radius: 20px;
+          box-shadow: 0 4px 12px rgba(146,92,147,0.2);
         }
 
-        .github-link-projects {
+        .project-body {
+          padding: 22px 24px 24px;
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          min-height: 0;
+        }
+
+        .project-name {
+          font-family: 'Outfit', sans-serif;
+          font-weight: 600;
+          font-size: 1.25rem;
+          color: #4e3b61;
+          margin: 0 0 12px;
+          line-height: 1.25;
+        }
+
+        .project-chips {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-bottom: 14px;
+        }
+
+        .project-chip {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.7rem;
+          font-weight: 500;
+          color: #6b5b7e;
+          background: linear-gradient(135deg, rgba(117,145,190,0.12), rgba(238,198,199,0.18));
+          border: 1px solid rgba(117,145,190,0.18);
+          padding: 4px 10px;
+          border-radius: 20px;
+        }
+
+        .project-desc {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 0.88rem;
+          font-weight: 300;
+          line-height: 1.55;
+          color: #6f6478;
+          margin: 0 0 18px;
+          overflow-y: auto;
+          flex: 1;
+          padding-right: 6px;
+        }
+        .project-desc::-webkit-scrollbar { width: 4px; }
+        .project-desc::-webkit-scrollbar-thumb {
+          background: linear-gradient(135deg, #7591be, #db88a4);
+          border-radius: 3px;
+        }
+
+        .project-link-new {
           display: inline-flex;
           align-items: center;
-          margin-top: 15px;
-          padding: 12px 20px;
-          color: white;
-          background: linear-gradient(135deg, #7591be, #a8c3d4);
-          border-radius: 8px;
-          font-weight: 600;
-          text-decoration: none;
-          transition: 0.3s;
-          flex-shrink: 0;
-          font-size: 1rem;
-          font-family: 'Montserrat', sans-serif;
-          width: auto;
+          gap: 8px;
           align-self: flex-start;
+          padding: 11px 20px;
+          color: #fff;
+          background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 30%, #db88a4 80%, #cc8eb1 100%);
+          border-radius: 10px;
+          font-family: 'Montserrat', sans-serif;
+          font-weight: 600;
+          font-size: 0.9rem;
+          text-decoration: none;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          flex-shrink: 0;
         }
-
-        .github-link-projects:hover {
+        .project-link-new:hover {
           transform: translateY(-2px);
-          box-shadow: 0px 5px 15px rgba(117, 145, 190, 0.4);
+          box-shadow: 0 8px 20px rgba(117,145,190,0.4);
         }
 
-        .github-icon-projects {
-          margin-right: 8px;
-          color: white;
+        /* Flechas y paginación de Swiper en tonos de la marca */
+        .projects-swiper .swiper-button-next,
+        .projects-swiper .swiper-button-prev {
+          color: #7591be;
+          background: #ffffff;
+          width: 46px;
+          height: 46px;
+          border-radius: 50%;
+          box-shadow: 0 6px 18px rgba(146,92,147,0.22);
+          transition: transform 0.3s ease;
+        }
+        .projects-swiper .swiper-button-next:hover,
+        .projects-swiper .swiper-button-prev:hover {
+          transform: scale(1.08);
+        }
+        .projects-swiper .swiper-button-next::after,
+        .projects-swiper .swiper-button-prev::after {
+          font-size: 1.1rem;
+          font-weight: 700;
+        }
+        .projects-swiper .swiper-pagination-bullet {
+          background: #c8b6d6;
+          opacity: 0.6;
+        }
+        .projects-swiper .swiper-pagination-bullet-active {
+          background: linear-gradient(135deg, #7591be, #db88a4);
+          opacity: 1;
+          width: 22px;
+          border-radius: 5px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-          .projects-container-projects {
-            flex-direction: column-reverse;
-            gap: 30px;
-            padding: 30px 20px;
-            max-width: 95%;
-          }
-
-          .projects-menu-projects {
-            flex: none;
-            max-width: none;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            height: auto;
-          }
-          
-          .project-detail-wrapper-projects {
-            flex: none;
-            max-width: none;
-          }
-
-          .menu-item-projects {
-            flex: 1 1 45%;
-            text-align: center;
-            min-width: 120px;
-            height: 60px;
-            min-height: 60px;
-            padding: 12px 15px;
-            font-size: 0.9rem;
-          }
-
-          .project-detail-projects {
-            width: 100%;
-            min-height: 500px;
-            height: auto;
-            padding: 30px;
-          }
-
-          .project-detail-projects img {
-            height: 150px;
-          }
-          
-          .projects-title-projects {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-          }
+        .projects-counter {
+          text-align: center;
+          font-family: 'Outfit', sans-serif;
+          color: #b49ec4;
+          font-weight: 600;
+          letter-spacing: 2px;
+          margin-top: 6px;
         }
+        .projects-counter b { color: #7591be; }
 
         @media (max-width: 768px) {
-          .projects-container-projects {
-            gap: 25px;
-            padding: 25px 15px;
-            max-width: 100%;
-          }
-
-          .projects-menu-projects {
-            gap: 8px;
-          }
-
-          .menu-item-projects {
-            flex: 1 1 100%;
-            height: 55px;
-            min-height: 55px;
-            padding: 10px 12px;
-            font-size: 0.85rem;
-          }
-
-          .project-detail-projects {
-            min-height: 450px;
-            padding: 25px;
-          }
-
-          .project-detail-projects img {
-            height: 130px;
-          }
-          
-          .projects-title-projects {
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
-          }
-          
-          .project-text-projects {
-            font-size: 0.9rem;
-            margin: 8px 0;
-          }
-          
-          .github-link-projects {
-            padding: 10px 16px;
-            font-size: 0.9rem;
-          }
-        }
-
-        @media (max-width: 480px) {
-          .projects-container-projects {
-            gap: 20px;
-            padding: 20px 10px;
-          }
-
-          .menu-item-projects {
-            height: 50px;
-            min-height: 50px;
-            padding: 8px 10px;
-            font-size: 0.8rem;
-          }
-
-          .project-detail-projects {
-            min-height: 400px;
-            padding: 20px;
-          }
-
-          .project-detail-projects img {
-            height: 110px;
-          }
-          
-          .projects-title-projects {
-            font-size: 1.5rem;
-            letter-spacing: 0.5px;
-            margin-bottom: 25px;
-          }
-          
-          .project-text-projects {
-            font-size: 0.85rem;
-            margin: 6px 0;
-            line-height: 1.5;
-          }
-          
-          .github-link-projects {
-            padding: 8px 14px;
-            font-size: 0.85rem;
-          }
+          .projects-title-new { font-size: 2.1rem; }
+          .project-slide { width: 300px; }
+          .project-card-new { height: 500px; }
+          .projects-swiper .swiper-button-next,
+          .projects-swiper .swiper-button-prev { display: none; }
         }
       `}</style>
-      
-      <section id={id} style={{ padding: '0' }}>
-        <h2 className="projects-title-projects">Portfolio highlights</h2>
-        <div className="projects-inner-container">
-          <div className="projects-container-projects">
-            {/* Menú de proyectos */}
-            <div className="projects-menu-projects">
-              {proyectos.map((proyecto) => (
-                <div
-                  key={proyecto.id}
-                  className={`menu-item-projects ${seleccionado.id === proyecto.id ? 'activo-projects' : ''}`}
-                  onClick={() => setSeleccionado(proyecto)}
-                >
-                  {proyecto.nombre}
-                </div>
-              ))}
-            </div>
 
-            {/* Detalle del proyecto */}
-            <div className="project-detail-wrapper-projects">
-              <div className="project-detail-projects">
-                <img src={seleccionado.imagen} alt={seleccionado.nombre} />
-                <div className="project-content-projects">
-                  <p className="project-text-projects">
-                    <span className="technologies-label-projects">Technologies:</span> {seleccionado.tecnologias}
-                  </p>
-                  <p className="project-text-projects">{seleccionado.descripcion}</p>
+      <div className="projects-heading">
+        <p className="projects-eyebrow">{t("projects.eyebrow")}</p>
+        <h2 className="projects-title-new">{t("projects.title")}</h2>
+        <p className="projects-subtitle" dangerouslySetInnerHTML={{ __html: t("projects.subtitle") }} />
+      </div>
+
+      <Swiper
+        className="projects-swiper"
+        dir="ltr"
+        modules={[EffectCoverflow, Navigation, Pagination, Keyboard]}
+        effect="coverflow"
+        grabCursor
+        centeredSlides
+        slidesPerView="auto"
+        loop
+        keyboard={{ enabled: true }}
+        navigation
+        pagination={{ clickable: true }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: -40,
+          depth: 260,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        onSlideChange={(s) => setActivo(s.realIndex)}
+      >
+        {proyectos.map((p) => {
+          const link = p.web ?? p.github;
+          const esWeb = Boolean(p.web);
+          return (
+            <SwiperSlide key={p.id} className="project-slide">
+              <article className="project-card-new">
+                <div className="project-image-wrap">
+                  <img src={p.imagen} alt={t(`proj.${p.id}.name`)} loading="lazy" />
+                  <span className="project-badge">{t(`proj.${p.id}.badge`)}</span>
                 </div>
-                <a
-                  href={seleccionado.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="github-link-projects"
-                >
-                  <FaGithub className="github-icon-projects" />
-                  GitHub
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+                <div className="project-body" dir={dir}>
+                  <h3 className="project-name">{t(`proj.${p.id}.name`)}</h3>
+                  <div className="project-chips">
+                    {p.tecnologias.split(",").map((tech, i) => (
+                      <span className="project-chip" key={i}>{tech.trim()}</span>
+                    ))}
+                  </div>
+                  <p className="project-desc">{t(`proj.${p.id}.desc`)}</p>
+                  {link && (
+                    <a
+                      href={link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link-new"
+                    >
+                      {esWeb ? <FaExternalLinkAlt /> : <FaGithub />}
+                      {esWeb ? t("projects.visit") : t("projects.viewCode")}
+                    </a>
+                  )}
+                </div>
+              </article>
+            </SwiperSlide>
+          );
+        })}
+      </Swiper>
+
+      <p className="projects-counter">
+        <b>{String(activo + 1).padStart(2, "0")}</b> / {String(proyectos.length).padStart(2, "0")}
+      </p>
+    </section>
   );
 };
 

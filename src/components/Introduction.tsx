@@ -1,7 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
+import { FaMapMarkerAlt } from "react-icons/fa";
 import "./Introduction.css"; // Importamos el CSS
+import { useLang } from "../i18n/LanguageContext";
 
 const Introduction = ({ id: _id }: { id?: string }) => {
+  const { t } = useLang();
   const [trailPoints, setTrailPoints] = useState<any[]>([]);
   const [isHovering, setIsHovering] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
@@ -141,16 +144,36 @@ return {
       </div>
 
       {/* Contenido */}
-      <div className="intro-content">
-        <p>
-          Passionate about{" "}
-          <span className="highlight5">technology</span> and{" "}
-          <span className="highlight5">innovation</span>, with a strong interest
-          in solving complex problems and building impactful solutions. Skilled
-          in software development, data analysis and{" "}
-          <span className="highlight5">process optimization</span>, and always
-          eager to learn and collaborate in diverse, dynamic environments.
-        </p>
+      <div className="about-inner">
+        <div className="about-photo">
+          <div className="about-photo-frame">
+            <img src="/Portfolio/yo.png" alt="Carol Florido" />
+          </div>
+          <span className="about-photo-badge">
+            <FaMapMarkerAlt /> {t("about.photoBadge")}
+          </span>
+        </div>
+
+        <div className="about-content">
+          <p className="about-eyebrow">{t("about.eyebrow")}</p>
+          <h2 className="about-heading" dangerouslySetInnerHTML={{ __html: t("about.heading") }} />
+          <p className="about-text" dangerouslySetInnerHTML={{ __html: t("about.text") }} />
+
+          <div className="about-facts">
+            <div className="about-fact">
+              <b>{t("about.fact1b")}</b>
+              <span>{t("about.fact1l")}</span>
+            </div>
+            <div className="about-fact">
+              <b>{t("about.fact2b")}</b>
+              <span>{t("about.fact2l")}</span>
+            </div>
+            <div className="about-fact">
+              <b>{t("about.fact3b")}</b>
+              <span>{t("about.fact3l")}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

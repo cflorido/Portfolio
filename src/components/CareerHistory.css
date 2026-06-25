@@ -1,8 +1,8 @@
 .career-history {
   width: 100%;          /* ocupa todo el ancho */
-  max-width: 1100px;    /* 👈 límite en pantallas grandes */
-  margin: 9% auto 0;    /* 👈 centra automáticamente */
-  padding: 0 20px;      /* 👈 margen interno lateral */
+  max-width: 1200px;    /* 👈 límite consistente con las demás secciones */
+  margin: 80px auto 0;  /* 👈 centra automáticamente */
+  padding: 0 24px;      /* 👈 margen interno lateral consistente */
   box-sizing: border-box;
 }
 html, body {

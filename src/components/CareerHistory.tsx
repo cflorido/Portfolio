@@ -24,49 +24,45 @@ function CareerHistory({ id: _id }: CareerHistoryProps) {
 
   return (
     <section id={_id} className="career-history">
-      <h2 className="career-title">Career & Community Engagement</h2>
+      <h2 className="career-title">Experience</h2>
       <div className="timeline">
-        {/* Item 1 */}
+        {/* Sezzle */}
         <div className="timeline-item">
-          <div className="timeline-date">Feb 2024 – Present</div>
+          <div className="timeline-date">Jan 2026 – Jul 2026</div>
           <div className="timeline-content">
-            <h3 className="job-title">Lead Front-End Designer</h3>
-            <p className="company">SpaceTech</p>
-            <p className="duration">(1 year 6 months)</p>
+            <h3 className="job-title">Software Engineering Intern</h3>
+            <p className="company">Sezzle (Fintech) · Remote</p>
             <ul>
-              <li>Spearheaded the design and implementation of engaging, user-friendly interfaces for educational tools focused on programming and space-related subjects.</li>
-              <li>Oversaw front-end development ensuring functionality, usability, and visual appeal.</li>
-              <li>Collaborated closely with multidisciplinary teams to deliver high-quality, interactive learning platforms.</li>
+              <li>Resolved 50+ tickets across the full stack, fixing front-end and back-end issues and improving admin dashboards for a production fintech platform serving 13M+ users and 40,000+ merchants (Go, React, SQL, distributed microservices).</li>
+              <li>Contributed to team initiatives building new in-app components and features, collaborating with globally distributed engineering teams across multiple time zones.</li>
+              <li>Wrote automated tests and participated in code reviews to maintain code quality and reliability in a continuous-delivery environment.</li>
+              <li>Offered a full-time Software Engineer position in recognition of internship performance.</li>
             </ul>
           </div>
         </div>
 
-        {/* Item 2 */}
+        {/* Tagscreen */}
+        <div className="timeline-item">
+          <div className="timeline-date">Oct 2025 – Jul 2026</div>
+          <div className="timeline-content">
+            <h3 className="job-title">Backend & AI Engineer (Part-time)</h3>
+            <p className="company">Tagscreen · Remote</p>
+            <ul>
+              <li>Architected scalable backend infrastructure for an AI-driven advertising platform, deploying computer-vision models (96% accuracy) for real-time object detection and facial recognition.</li>
+              <li>Built RESTful APIs and data pipelines that process real-time media streams, delivering interactive brand demos for major clients including Win Sports, Copec, Mercado Libre and LIDOM.</li>
+              <li>Supported the platform's commercial launch in Chile through the "Tu Día" programme with Mercado Libre, driving approximately 15,000 user interactions.</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Teaching Assistant */}
         <div className="timeline-item">
           <div className="timeline-date">Feb 2023 – Jun 2023</div>
           <div className="timeline-content">
-            <h3 className="job-title">Teaching Assistant – Data Structures and Algorithms</h3>
+            <h3 className="job-title">Teaching Assistant – Data Structures & Algorithms</h3>
             <p className="company">Universidad de los Andes</p>
-            <p className="duration">(5 months)</p>
             <ul>
-              <li>Conducted laboratory sessions and guided students in mastering core programming concepts.</li>
-              <li>Evaluated assignments and provided feedback to enhance project outcomes.</li>
-              <li>Developed learning materials and resources for undergraduate courses.</li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Voluntariado */}
-        <div className="timeline-item">
-          <div className="timeline-date">Sep 2025</div>
-          <div className="timeline-content">
-            <h3 className="job-title">Volunteer – Mentorship</h3>
-            <p className="company">Pylatino</p>
-            <p className="duration">(1 day)</p>
-            <ul>
-              <li>Participated as a volunteer monitor teaching Python programming to students.</li>
-              <li>Facilitated practical exercises and solved doubts to reinforce concepts.</li>
-              <li>Promoted collaborative learning in an inclusive environment.</li>
+              <li>Mentored 25+ students through advanced algorithmic concepts, running weekly lab sessions and providing detailed feedback on projects.</li>
             </ul>
           </div>
         </div>

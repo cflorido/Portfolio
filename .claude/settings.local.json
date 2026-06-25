@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "WebFetch(domain:github.com)",
+      "Bash(command -v gh)",
+      "Bash(gh repo *)",
+      "WebFetch(domain:pipingwelding.com)",
+      "Bash(npx tsc *)",
+      "Bash(sed -n '1,20p' src/components/Data.css)",
+      "Bash(sed -n '15,30p' src/components/Hobbies.css)",
+      "Bash(sed -n '1,30p' src/components/Footer.css)",
+      "Bash(node -e \"console.log\\(require\\('./node_modules/swiper/package.json'\\).version\\)\")",
+      "Bash(echo \"swiper OK $\\(node -e \"console.log\\(require\\('./node_modules/swiper/package.json'\\).version\\)\"\\)\")",
+      "Bash(echo \"exit: $?\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/Portfolio/)",
+      "Bash(echo \"exit:$?\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:5173/Portfolio/yo.png)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:5173/Portfolio/)"
+    ]
+  }
+}

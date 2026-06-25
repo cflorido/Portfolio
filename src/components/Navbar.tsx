@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import { useLang } from "../i18n/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useLang();
 
   return (
     <nav className="navbar">
@@ -28,10 +31,11 @@ const Navbar: React.FC = () => {
 
         {/* Links */}
         <div className={`navbar-links ${isOpen ? "open" : ""}`}>
-          <a href="#history" onClick={() => setIsOpen(false)}>History</a>
-          <a href="#skills" onClick={() => setIsOpen(false)}>Skills</a>
-          <a href="#hobbies" onClick={() => setIsOpen(false)}>Hobbies</a>
-          <a href="#projects" onClick={() => setIsOpen(false)}>Projects</a>
+          <a href="#projects" onClick={() => setIsOpen(false)}>{t("nav.projects")}</a>
+          <a href="#skills" onClick={() => setIsOpen(false)}>{t("nav.skills")}</a>
+          <a href="#history" onClick={() => setIsOpen(false)}>{t("nav.experience")}</a>
+          <a href="#contact" onClick={() => setIsOpen(false)}>{t("nav.contact")}</a>
+          <LanguageSwitcher />
         </div>
       </div>
     </nav>

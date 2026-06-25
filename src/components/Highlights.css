@@ -1,0 +1,111 @@
+.highlights-section {
+  padding: 50px 0;
+  width: 100%;
+}
+
+.highlights-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  box-sizing: border-box;
+}
+
+.highlight-tag {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #db88a4;
+  margin-bottom: 10px;
+}
+.highlight-card.is-key .highlight-tag {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.highlight-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px 22px;
+  text-align: center;
+  box-shadow: 0 12px 32px rgba(146, 92, 147, 0.14);
+  border: 1px solid rgba(117, 145, 190, 0.12);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 25%, #eec6c7 60%, #db88a4 85%, #cc8eb1 100%);
+}
+
+.highlight-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 44px rgba(146, 92, 147, 0.24);
+}
+
+/* Tarjeta destacada: el dato más importante para Australia */
+.highlight-card.is-key {
+  background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 30%, #db88a4 80%, #cc8eb1 100%);
+}
+.highlight-card.is-key .highlight-icon,
+.highlight-card.is-key .highlight-value,
+.highlight-card.is-key .highlight-label {
+  color: #ffffff;
+}
+.highlight-card.is-key .highlight-icon {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.highlight-icon {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #7591be;
+  background: linear-gradient(135deg, rgba(117, 145, 190, 0.14), rgba(219, 136, 164, 0.18));
+}
+
+.highlight-value {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #4e3b61;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+
+.highlight-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.86rem;
+  font-weight: 400;
+  color: #6f6478;
+  line-height: 1.45;
+}
+
+@media (max-width: 992px) {
+  .highlights-inner {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+  }
+}
+
+@media (max-width: 520px) {
+  .highlights-inner {
+    grid-template-columns: 1fr;
+  }
+}

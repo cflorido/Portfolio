@@ -1,0 +1,110 @@
+.lang-switcher {
+  position: relative;
+  z-index: 10001;
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 30px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+}
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+.lang-globe {
+  font-size: 0.95rem;
+}
+.lang-caret {
+  font-size: 0.7rem;
+  transition: transform 0.25s ease;
+}
+.lang-caret.up {
+  transform: rotate(180deg);
+}
+
+.lang-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  min-width: 190px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(146, 92, 147, 0.3);
+  border: 1px solid rgba(117, 145, 190, 0.16);
+  animation: lang-pop 0.18s ease;
+}
+@keyframes lang-pop {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #5b556b;
+  background: transparent;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.lang-option:hover {
+  background: rgba(117, 145, 190, 0.12);
+}
+.lang-option.active {
+  color: #738fbd;
+  background: linear-gradient(135deg, rgba(117, 145, 190, 0.16), rgba(238, 198, 199, 0.22));
+  font-weight: 600;
+}
+.lang-flag {
+  font-size: 1.05rem;
+}
+
+/* RTL: el menú se alinea a la izquierda */
+[dir="rtl"] .lang-menu {
+  right: auto;
+  left: 0;
+}
+[dir="rtl"] .lang-option {
+  text-align: right;
+}
+
+/* En móvil, el selector va dentro del menú desplegable */
+@media (max-width: 768px) {
+  .lang-toggle {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .lang-menu {
+    right: 50%;
+    transform: translateX(50%);
+  }
+  @keyframes lang-pop {
+    from { opacity: 0; transform: translateX(50%) translateY(-6px); }
+    to { opacity: 1; transform: translateX(50%) translateY(0); }
+  }
+}

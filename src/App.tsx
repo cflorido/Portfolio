@@ -1,19 +1,24 @@
 import { useState, useEffect } from 'react';
+import { FaRegHandPaper, FaMapMarkerAlt } from 'react-icons/fa';
 import './App.css';
-import CareerHistory from './components/CareerHistory';
+import Background from './components/Background';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Introduction from './components/Introduction';
-import Hobbies from './components/Hobbies';
-import Data from './components/Data';
+import Highlights from './components/Highlights';
+import Expertise from './components/Expertise';
+import Contact from './components/Contact';
 import Codelab from './components/Codelab';
+import PersonalStory from './components/PersonalStory';
+import { useLang } from './i18n/LanguageContext';
 
 function App() {
   const [_showHeader, setShowHeader] = useState(false);
   const [_imagenActual, setImagenActual] = useState("/ilustracion.png");
   const [showScrollButton, setShowScrollButton] = useState(false);
+  const { t, lang } = useLang();
      
   // 👇 Nuevo estado para el logo
   const [logoActual, setLogoActual] = useState("https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/logo_1.png");
@@ -48,6 +53,28 @@ function App() {
     return () => clearInterval(intervaloLogo);
   }, []);
 
+  // 👇 Scroll reveal: anima los elementos al entrar en pantalla
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>('.reveal, .reveal-stagger');
+    if (!('IntersectionObserver' in window) || elements.length === 0) {
+      elements.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [lang]);
+
   // Función para scroll hacia arriba
   const scrollToTop = () => {
     window.scrollTo({
@@ -59,54 +86,62 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="portfolio-container">
-        
-        {/* Texto esquina superior izquierda */}
-        <div className="corner-text-top">
-          <span className="hello">Hello!</span> <br />
-          My name is <span className="highlight2">Carol</span>
+      <header className="hero">
+        {/* Columna izquierda: texto + badges + CTA */}
+        <div className="hero-left reveal-stagger">
+          <p className="hero-greeting">
+            <FaRegHandPaper className="hero-wave" /> {t("hero.greeting")}
+          </p>
+          <h1 className="hero-name">Carol <span className="highlight2">Florido</span></h1>
+          <p className="hero-role">{t("hero.role")}</p>
+          <p className="hero-tagline" dangerouslySetInnerHTML={{ __html: t("hero.tagline") }} />
+
+          <div className="hero-badges">
+            <span className="hero-badge key"><FaMapMarkerAlt className="hero-badge-icon" /> {t("hero.badgePR")}</span>
+            <span className="hero-badge">{t("hero.badgeHonors")}</span>
+            <span className="hero-badge">{t("hero.badgeGPA")}</span>
+          </div>
+
+          <div className="hero-cta">
+            <a href="#projects" className="hero-btn primary">{t("hero.ctaWork")}</a>
+            <a href="#contact" className="hero-btn">{t("hero.ctaContact")}</a>
+          </div>
         </div>
 
-        {/* Texto esquina inferior derecha */}
-        <div className="corner-text-bottom">
-          Computing <span className="highlight2">engineer</span><br />
-          Industrial <span className="highlight2">engineer</span>
+        {/* Columna derecha: círculo con blob y chips flotantes */}
+        <div className="hero-right">
+          <span className="hero-blob" />
+          <span className="hero-ring" />
+          <div className="portfolio-circle">
+            <svg viewBox="0 0 350 250" className="portfolio-text-svg">
+              <path id="topArc" d="M 25,200 A 150,150 0 0,1 325,200" fill="none" />
+              <text className="portfolio-text">
+                <textPath href="#topArc" startOffset="50%" textAnchor="middle">
+                  PORTFOLIO
+                </textPath>
+              </text>
+            </svg>
+            <img src={logoActual} alt="Logo" />
+          </div>
+          <span className="hero-float f1">Go</span>
+          <span className="hero-float f2">React</span>
+          <span className="hero-float f3">Python</span>
+          <span className="hero-float f4">TypeScript</span>
+          <span className="hero-float f5">GCP</span>
+          <span className="hero-float f6">AWS</span>
+          <span className="hero-float f7">SQL</span>
+          <span className="hero-float f8">Swift</span>
         </div>
-                
-        <div className="portfolio-circle">
-          <svg viewBox="0 0 350 250" className="portfolio-text-svg">
-            <path
-              id="topArc"
-              d="M 25,200 A 150,150 0 0,1 325,200"
-              fill="none"
-            />
-            <text className="portfolio-text">
-              <textPath href="#topArc" startOffset="50%" textAnchor="middle">
-                PORTFOLIO
-              </textPath>
-            </text>
-          </svg>
-          {/* 👇 Ahora el logo cambia dinámicamente */}
-          <img src={logoActual} alt="Logo" />
-        </div>
-      </div>
+      </header>
 
       <Introduction id="about" />
-      <section id="career" className="skills-section">
-        <div className="bolas">
-          <span></span>
-          <span></span>
 
-        </div>
+      <Expertise id="expertise" />
 
-      </section>
-         
+      <Highlights />
+
       <Projects id="projects" />
- 
 
-      
-      <Data />
-    
       <section id="skills" className="skills-section">
         <div className="bolas">
           <span></span>
@@ -115,10 +150,15 @@ function App() {
         </div>
         <Skills />
       </section>
-    
-      <Hobbies id="hobbies" />
- <Codelab />
-              <CareerHistory id="history" />
+
+      <Background id="history" />
+
+      <Codelab />
+
+      <PersonalStory id="about-me" />
+
+      <Contact id="contact" />
+
       <Footer/>
 
       {/* Botón Scroll to Top */}

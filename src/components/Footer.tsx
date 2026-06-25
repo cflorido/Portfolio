@@ -1,14 +1,16 @@
 
 import { FaHeart } from "react-icons/fa"; // importamos el corazón
 import "./footer.css";
+import { useLang } from "../i18n/LanguageContext";
 
 function Footer() {
+  const { t } = useLang();
   return (
     <footer className="footer">
       <div className="footer-content">
         <h3 className="footer-logo">Carol Florido</h3>
         <p className="footer-text">
-          © {new Date().getFullYear()} | Designed & Built with{" "}
+          © {new Date().getFullYear()} | {t("footer.built")}{" "}
           <FaHeart className="footer-heart" />
         </p>
         <div className="footer-links">
@@ -17,9 +19,9 @@ function Footer() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            LinkedIn
+            {t("footer.linkedin")}
           </a>
-          <a href="mailto:carolsofiafloridocastro@gmail.com">Email</a>
+          <a href="mailto:carolsofiafloridocastro@gmail.com">{t("footer.email")}</a>
         </div>
       </div>
     </footer>

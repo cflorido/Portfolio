@@ -5,8 +5,9 @@
   gap: 20px;
 
   width: 100%;
-  margin-left: 9%;   /* margen lateral izquierdo */
-  margin-right: 9%;  /* margen lateral derecho */
+  max-width: 1200px;
+  margin: 0 auto;    /* centrado, consistente con las demás secciones */
+  padding: 0 24px;
   box-sizing: border-box;
 }
 

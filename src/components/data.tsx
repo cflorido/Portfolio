@@ -8,11 +8,11 @@ const Data: React.FC = () => {
 
   const ages = Array.from({ length: 22 }, (_, i) => i.toString().padStart(2, '0'));
   const nationalities = ['American', 'Brazilian', 'Mexican', 'Argentine', 'Chilean', 'Peruvian', 'Venezuelan', 'Colombian'];
-  const englishLevels = ['Basic', 'Pre-Intermediate', 'Intermediate', 'Upper Intermediate'];
+  const englishLevels = ['Basic', 'Pre-Intermediate', 'Intermediate', 'Upper Intermediate', 'Fluent'];
 
   const [_currentAge, _setCurrentAge] = useState('21');
   const [_currentNationality, _setCurrentNationality] = useState('Colombian');
-  const [_currentLevel, _setCurrentLevel] = useState('Upper Intermediate');
+  const [_currentLevel, _setCurrentLevel] = useState('Fluent');
 
   const [ageSlotPosition, setAgeSlotPosition] = useState(0);
   const [nationalitySlotPosition, setNationalitySlotPosition] = useState(0);
@@ -77,7 +77,7 @@ const Data: React.FC = () => {
     }, 300);
     
     setTimeout(() => {
-      createSlotMachineAnimation(englishLevels, 'Upper Intermediate', setLevelSlotPosition, 3000);
+      createSlotMachineAnimation(englishLevels, 'Fluent', setLevelSlotPosition, 3000);
     }, 600);
 
     setTimeout(() => {

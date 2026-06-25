@@ -2,7 +2,7 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden; /* quita scroll horizontal */
+  overflow-x: clip; /* quita scroll horizontal sin crear scroll anidado */
 }
 * {
   box-sizing: border-box;

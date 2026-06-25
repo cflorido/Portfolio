@@ -22,8 +22,10 @@
   box-sizing: border-box;
 }
 .hobbies-inner {
-  margin-left: 9%;  /* margen lateral izquierdo */
-  margin-right: 9%; /* margen lateral derecho */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
 }
 
 .trail-container-hobbies {

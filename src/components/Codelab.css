@@ -1,238 +1,184 @@
-.codelab-section {
-  padding: 0px 20px;
-  display: flex;
-  margin-bottom: 2%;
-  justify-content: center;
-  align-items: center;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&display=swap');
+
+.community-section {
+  padding: 70px 0;
   width: 100%;
-  max-width: 100%;
+}
+
+.community-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   box-sizing: border-box;
+  text-align: center;
 }
 
-.codelab-container {
-  max-width: 1100px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.codelab-logo img {
-  width: 330px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 0px;
-}
-
-.codelab-logo img:hover {
-  transform: scale(1.05);
-}
-
-.codelab-text {
-  flex: 1;
-  min-width: 0;
+.community-eyebrow {
   font-family: 'Montserrat', sans-serif;
-  color: #7591be;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #db88a4;
+  margin: 0 0 8px;
 }
 
-.codelab-title {
+.community-title {
   font-family: 'Outfit', sans-serif;
-  font-size: 2.9rem;
-  font-weight: 600;
-  letter-spacing: 4px;
+  font-weight: 700;
+  font-size: 2.7rem;
   color: #7591be;
-  margin-bottom: 10px;
+  letter-spacing: 2px;
+  margin: 0;
 }
 
-.codelab-subtitle {
+.community-subtitle {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #555;
-  letter-spacing: 1px;
+  color: #6b5b7e;
+  font-size: 1.02rem;
+  margin: 14px auto 44px;
+  line-height: 1.6;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  text-align: left;
+}
+
+.community-card {
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 30px 30px 32px;
+  box-shadow: 0 14px 38px rgba(146, 92, 147, 0.14);
+  border: 1px solid rgba(117, 145, 190, 0.12);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.community-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 25%, #eec6c7 60%, #db88a4 85%, #cc8eb1 100%);
+}
+
+.community-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 56px rgba(146, 92, 147, 0.24);
+}
+
+.community-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20px;
 }
 
-.codelab-description {
+.community-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(117, 145, 190, 0.12), rgba(238, 198, 199, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.community-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.community-logo.python {
+  font-size: 2rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 40%, #db88a4 90%);
+}
+
+.community-tag {
   font-family: 'Montserrat', sans-serif;
-  color: #555;
-  font-size: 1rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  color: #7591be;
+  background: linear-gradient(135deg, rgba(117, 145, 190, 0.14), rgba(238, 198, 199, 0.22));
+  border: 1px solid rgba(117, 145, 190, 0.2);
+  padding: 6px 13px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.community-card-title {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: #4e3b61;
+  margin: 0 0 8px;
+}
+
+.community-card-role {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #db88a4;
+  margin: 0 0 16px;
+}
+.community-card-role svg {
+  flex-shrink: 0;
+}
+
+.community-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.92rem;
   font-weight: 300;
-  letter-spacing: 0.3px;
-  margin-bottom: 25px;
+  line-height: 1.65;
+  color: #6f6478;
+  margin: 0 0 22px;
+  flex: 1;
+}
+.community-card-desc strong {
+  font-weight: 600;
+  color: #5d4d6e;
 }
 
-/* Estilos para la sección social */
-.codelab-social {
-  margin-top: 20px;
-}
-
-.codelab-instagram-btn {
+.community-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, rgb(117, 145, 190));
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
+  gap: 9px;
+  align-self: flex-start;
+  padding: 11px 22px;
+  border-radius: 11px;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-
-}
-
-.codelab-instagram-btn:hover {
-  transform: translateY(-3px);
-
+  font-size: 0.9rem;
   text-decoration: none;
-  color: #fff;
+  color: #ffffff;
+  background: linear-gradient(135deg, #738fbd 0%, #a8c3d4 30%, #db88a4 80%, #cc8eb1 100%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.community-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(117, 145, 190, 0.4);
 }
 
-.codelab-instagram-btn:active,
-.codelab-instagram-btn:focus {
-  color: #fff;
-  outline: none;
-}
-
-.instagram-icon {
-  width: 20px;
-  height: 20px;
-  transition: transform 0.3s ease;
-}
-
-.codelab-instagram-btn:hover .instagram-icon {
-  transform: rotate(15deg) scale(1.1);
-}
-
-/* Estilos originales del botón genérico (si los necesitas para otros elementos) */
-.codelab-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  background: #cc8eb1;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.codelab-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  background: #7591be;
-}
-
-.codelab-btn:active,
-.codelab-btn:focus {
-  color: #fff;
-  outline: none;
-}
-
-/* 📱 Responsivo */
-@media (max-width: 1024px) {
-  .codelab-section {
-    padding: 0px 15px;
+@media (max-width: 820px) {
+  .community-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .codelab-container {
-    gap: 15px;
-  }
-  
-  .codelab-logo img {
-    width: 280px;
-  }
-  
-  .codelab-title {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .codelab-section {
-    padding: 0px 10px;
-  }
-  
-  .codelab-container {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-  }
-
-  .codelab-logo img {
-    width: 200px;
-    margin-bottom: 0;
-  }
-
-  .codelab-title {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
-  }
-  
-  .codelab-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .codelab-description {
-    font-size: 0.95rem;
-  }
-  
-  .codelab-instagram-btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .codelab-section {
-    padding: 0px 8px;
-  }
-  
-  .codelab-logo img {
-    width: 160px;
-  }
-
-  .codelab-title {
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-  }
-  
-  .codelab-subtitle {
-    font-size: 1rem;
-  }
-  
-  .codelab-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-  }
-  
-  .codelab-instagram-btn {
-    font-size: 0.85rem;
-    padding: 8px 16px;
-  }
-}
-
-@media (max-width: 320px) {
-  .codelab-section {
-    padding: 0px 5px;
-  }
-  
-  .codelab-logo img {
-    width: 140px;
-  }
-
-  .codelab-title {
-    font-size: 1.5rem;
-  }
-  
-  .codelab-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .codelab-description {
-    font-size: 0.85rem;
-  }
+  .community-title { font-size: 2.1rem; }
 }
