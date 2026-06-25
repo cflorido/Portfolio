@@ -58,9 +58,9 @@ Error generating stack: `+l.message+`
 
         .projects-heading {
           text-align: center;
-          max-width: 1200px;
+          max-width: 1400px;
           margin: 0 auto 10px;
-          padding: 0 24px;
+          padding: 0 clamp(32px, 6vw, 120px);
         }
 
         .projects-eyebrow {
@@ -86,14 +86,14 @@ Error generating stack: `+l.message+`
           font-family: 'Montserrat', sans-serif;
           color: #6b5b7e;
           font-size: 1.02rem;
-          max-width: 620px;
+          max-width: 720px;
           margin: 14px auto 40px;
           line-height: 1.6;
         }
 
         .projects-swiper {
-          padding: 50px 10px 80px !important;
-          max-width: 1200px;
+          padding: 50px clamp(24px, 4vw, 64px) 80px !important;
+          max-width: 1400px;
         }
 
         .project-slide {
