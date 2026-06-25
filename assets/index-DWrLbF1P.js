@@ -58,9 +58,9 @@ Error generating stack: `+l.message+`
 
         .projects-heading {
           text-align: center;
-          max-width: 1400px;
+          max-width: 1120px;
           margin: 0 auto 10px;
-          padding: 0 clamp(32px, 6vw, 120px);
+          padding: 0 clamp(24px, 6vw, 180px);
         }
 
         .projects-eyebrow {
@@ -76,7 +76,7 @@ Error generating stack: `+l.message+`
         .projects-title-new {
           font-family: 'Outfit', sans-serif;
           font-weight: 700;
-          font-size: 2.9rem;
+          font-size: 2.6rem;
           color: #7591be;
           letter-spacing: 3px;
           margin: 0;
@@ -85,19 +85,19 @@ Error generating stack: `+l.message+`
         .projects-subtitle {
           font-family: 'Montserrat', sans-serif;
           color: #6b5b7e;
-          font-size: 1.02rem;
+          font-size: 0.98rem;
           max-width: 720px;
           margin: 14px auto 40px;
           line-height: 1.6;
         }
 
         .projects-swiper {
-          padding: 50px clamp(24px, 4vw, 64px) 80px !important;
-          max-width: 1400px;
+          padding: 50px clamp(24px, 6vw, 120px) 80px !important;
+          max-width: 1120px;
         }
 
         .project-slide {
-          width: 460px;
+          width: 380px;
           max-width: 88vw;
         }
 
@@ -109,7 +109,7 @@ Error generating stack: `+l.message+`
           border: 1px solid rgba(117, 145, 190, 0.12);
           display: flex;
           flex-direction: column;
-          height: 540px;
+          height: 470px;
           /* Por defecto ocultas (solo se muestran la activa y sus vecinas) */
           transform: scale(0.78);
           opacity: 0;
@@ -132,7 +132,7 @@ Error generating stack: `+l.message+`
 
         .project-image-wrap {
           position: relative;
-          height: 200px;
+          height: 160px;
           flex-shrink: 0;
           overflow: hidden;
         }
