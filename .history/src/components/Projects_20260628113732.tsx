@@ -396,7 +396,7 @@ const Projects = ({ id }: { id?: string }) => {
                     ))}
                   </div>
                   <p className="project-desc">{t(`proj.${p.id}.desc`)}</p>
-                  <div className="project-links" style={{ display: "flex", gap: "8px" }}>
+                  <div className="project-links">
                     {link && (
                       <a
                         href={link}

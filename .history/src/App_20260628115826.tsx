@@ -115,7 +115,7 @@ function App() {
           <span className="hero-ring" />
           <div className="portfolio-circle">
             <svg viewBox="0 0 350 250" className="portfolio-text-svg">
-              <path id="topArc" d="M 25,215 A 150,150 0 0,1 325,215" fill="none" />
+              <path id="topArc" d="M 25,200 A 150,150 0 0,1 325,200" fill="none" />
               <text className="portfolio-text">
                 <textPath href="#topArc" startOffset="50%" textAnchor="middle">
                   PORTFOLIO

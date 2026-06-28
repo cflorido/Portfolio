@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram, FaPython, FaUsers } from "react-icons/fa";
+import { FaInstagram, FaPalette, FaUsers } from "react-icons/fa";
 import "./Codelab.css";
 import { useLang } from "../i18n/LanguageContext";
 
@@ -39,11 +39,11 @@ const Codelab: React.FC<{ id?: string }> = ({ id }) => {
             </a>
           </article>
 
-          {/* Pylatino */}
+          {/* SpaceTec */}
           <article className="community-card">
             <div className="community-card-top">
               <div className="community-logo python">
-                <FaPython />
+                <FaPalette />
               </div>
               <span className="community-tag">{t("community.c2tag")}</span>
             </div>
