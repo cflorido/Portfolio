@@ -35,21 +35,13 @@ const Projects = ({ id }: { id?: string }) => {
     {
       "id": 8,
       "nombre": "Piping & Welding – Corporate Website",
-      "descripcion": "A corporate website I designed and fully implemented for an Australian welding company specialising in piping, steel and metal structures. End-to-end ownership of the visual design, UX and front-end implementation: clean, modern and fully responsive.",
+      "descripcion": "A  website I designed and fully implemented for an welding company specialising in piping, steel and metal structures. End-to-end ownership of the visual design, UX and front-end implementation: clean, modern and fully responsive.",
       "tecnologias": "Vite, React, TypeScript, CSS, Responsive Design",
       "web": "https://pipingwelding.com/",
       "imagen": "/Portfolio/PipingWelding.png",
       "destacado": "Live · End-to-end design & build"
     },
-    {
-      "id": 1,
-      "nombre": "Personal Portfolio",
-      "descripcion": "This very portfolio you're viewing right now: a fully responsive, modern website designed to adapt seamlessly to any device. A showcase of my work that also reflects my personal style and passion for clean, user-friendly design.",
-      "tecnologias": "Vite, React, TypeScript, CSS",
-      "github": "https://github.com/cflorido/Portafolio",
-      "imagen": "https://raw.githubusercontent.com/cflorido/Portfolio/refs/heads/master/public/Portafolio.png",
-      "destacado": "Responsive · Custom UI"
-    },
+
     {
       "id": 2,
       "nombre": "Differential Privacy for Trajectories",
